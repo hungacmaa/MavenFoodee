@@ -1,0 +1,15 @@
+footer{
+  padding: 3em 0;
+  .footer-tren{
+    display: flex;
+    margin-top: 2em;
+    .phan{
+      width: 20%;
+      .tieude{
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 1em;
+      }
+    }
+  }
+}

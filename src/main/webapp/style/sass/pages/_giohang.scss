@@ -1,0 +1,122 @@
+.trang-gio-hang {
+  .tieude-trang{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  .chiacot {
+    display: flex;
+    .phantrai {
+      width: 70%;
+      .giohang-list {
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgb(163, 163, 163);
+        padding: 1em;
+        margin-right: 1em;
+        .giohang-item {
+          border-bottom: 1px solid rgb(203, 203, 203);
+          padding: 1em;
+          display: flex;
+          .avatar {
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            display: inline-block;
+            img {
+              width: 100%;
+            }
+          }
+          .box-sanpham {
+            display: inline-block;
+            width: 50%;
+            flex-grow: 1;
+            margin: 0 1em;
+            .tensanpham {
+              font-size: 1.2rem;
+              font-weight: bold;
+              color: rgb(68, 68, 68);
+            }
+            .motangan {
+              font-size: 0.9rem;
+              color: rgb(118, 118, 118);
+            }
+          }
+          .box-thongtin {
+            display: inline-block;
+            .gia {
+              display: inline;
+              color: $color-primary;
+              font-size: 1.2rem;
+              font-weight: bold;
+            }
+            .them {
+              padding: 5px 10px;
+              border: none;
+              color: white;
+              background-color: $color-primary;
+              border: 1px solid $color-primary;
+              border-radius: 3px;
+              margin-left: 1em;
+              transition: 0.5s;
+              cursor: pointer;
+              &:hover {
+                background-color: white;
+                border: 1px solid $color-primary;
+                color: $color-primary;
+              }
+            }
+            .soluong {
+              margin-top: 1em;
+            }
+          }
+        }
+      }
+    }
+    .phanphai {
+      width: 30%;
+      .box-thanhtoan {
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgb(163, 163, 163);
+        padding: 1em;
+        text-align: center;
+        .tongtien {
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin: 0.5em 0;
+          color: rgb(86, 86, 86);
+          .tien {
+            font-size: 2rem;
+            color: $color-primary;
+          }
+        }
+        .thongtin-item {
+          padding: 0 2em;
+          .tieude-thongtin {
+            font-weight: bold;
+            color: rgb(86, 86, 86);
+          }
+          input {
+            display: block;
+            width: 100%;
+            margin-bottom: 1em;
+            padding: 0.5em 1em;
+            
+          }
+        }
+        .dathang {
+          background-color: $color-primary;
+          border: 1px solid $color-primary;
+          color: white;
+          &:hover {
+            background-color: white;
+            color: $color-primary;
+            border: 1px solid $color-primary;
+          }
+        }
+      }
+    }
+  }
+}

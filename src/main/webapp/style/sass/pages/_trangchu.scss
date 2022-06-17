@@ -1,0 +1,121 @@
+.trang-chu{
+  padding-top: 2em;
+  .danhmuc{
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgb(163, 163, 163);
+    .tieude{
+      font-size: 1.3rem;
+      color: $color-grey;
+      padding: 1em 0.5em;
+      border-bottom: 1px solid rgb(216, 216, 216);
+    }
+    .danhmuc-list{
+      display: flex;
+      flex-wrap: wrap;
+      .danhmuc-item{
+        width: 20%;
+        padding: 1em 2em;
+        border: 1px solid rgb(242, 242, 242);
+        .anh{
+          width: 100%;
+          height: 150px;
+
+        }
+        .ten{
+          text-align: center;
+          color: black;
+        }
+      }
+    }
+  }
+  .sanpham-list{
+    display: flex;
+    flex-wrap: wrap;
+    .sanpham-item{
+      width: 20%;
+      padding: 1em;
+      .sanpham{
+        width: 100%;
+        box-shadow: 0 0 5px rgb(229, 229, 229);
+        border-radius: 5px;
+        position: relative;
+        transition: all .5s;
+        background-color: white;
+        .anhdaidien{
+          width: 100%;
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+        }
+        .noidung{
+          padding: 1em;
+          .ten{
+              color: black;
+          }
+          .duoiten{
+            margin-top: 1em;
+            display: flex;
+            justify-content: space-between;
+            .gia{
+              color: $color-primary;
+              font-weight: bold;
+            }
+            .daban{
+              color: $color-grey;
+              font-size: 0.9rem;
+            }
+          }
+          
+        }
+        .yeuthich{
+          position: absolute;
+          top: 10px;
+          left: -5px;
+          background-color: $color-primary;
+          font-size: 0.8rem;
+          color: white;
+          padding: 2px 5px;
+          border-radius: 2px;
+        }
+        .giamgia{
+          position: absolute;
+          right: 0;
+          top: 0;
+          background-color: $color-secondary;
+          color: $color-primary;
+          padding: 5px;
+          font-size: 0.9rem;
+          padding-bottom: 15px;
+          clip-path: polygon(0 0, 100% 0%, 100% 100%, 50% 77%, 0 100%);
+
+        }
+        .nut-tuongtu{
+          position: absolute;
+          bottom: 0;
+          transform: translateY(100%);
+          width: 100%;
+          padding: 0.5em ;
+          background-color: $color-primary;
+          color: $color-white;
+          text-align: center;
+          display: none;
+        }
+        &:hover{
+          border:1px solid $color-primary;
+          transform: translateY(-2px);
+          .nut-tuongtu{
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  .hop-tieude{
+    margin-top: 2em;
+    padding: 2em;
+    box-shadow: 0 0 5px rgb(222, 222, 222);
+    background-color: white;
+    color: $color-primary;
+  }
+}

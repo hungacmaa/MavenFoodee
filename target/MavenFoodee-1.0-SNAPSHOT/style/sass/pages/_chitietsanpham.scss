@@ -1,0 +1,158 @@
+.chi-tiet-sanpham{
+  .tongquat{
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgb(163, 163, 163);
+    display: flex;
+    padding: 1em;
+    .phan-trai{
+      width: 40%;
+      .box-anh{
+        .anh-to{
+          width: 300px;
+          margin: auto;
+          img{
+            width: 100%;
+          }
+        }
+        .anh-duoi{
+          width: 100%;
+          overflow-x: scroll;
+          .anh-list{
+            width: 800px;
+            overflow-x: scroll;
+            .anh-item{
+              width: 60px;
+              height: 80px;
+              display: inline-block;
+              img{
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+    .phan-phai{
+      width: 60%;
+      .ten-sanpham{
+        font-size: 2rem;
+        font-weight: bold;
+        color: rgb(92, 92, 92);
+      }
+      .box-gia{
+        background-color: rgb(244, 244, 244);
+        padding: 1em;
+        border-radius: 5px;
+        margin: 1em 0;
+        .gia{
+          color: $color-primary;
+          font-size: 2rem;
+          font-weight: bold;
+        }
+      }
+      .soluong{
+        .chonsoluong{
+          font-size: 1.1rem;
+          font-weight: bold;
+        }
+        .soluong-form {
+          display: inline-block;
+          margin-left: 2em;
+          .soluong-nut {
+            display: inline-block;
+            border: 1px solid #ddd;
+            margin: 0px;
+            margin-bottom: 5px;
+            height: 40px;
+            width: 40px;
+            text-align: center;
+            vertical-align: middle;
+            padding: 5px 0;
+            background: #eee;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+          }
+
+          .value-button:hover {
+            cursor: pointer;
+          }
+
+          #giam {
+            margin-right: -4px;
+            border-radius: 8px 0 0 8px;
+          }
+
+          #tang {
+            margin-left: -4px;
+            border-radius: 0 8px 8px 0;
+          }
+
+          #input-wrap {
+            margin: 0px;
+            padding: 0px;
+          }
+
+          input#soluong {
+            text-align: center;
+            border: none;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            margin: 0px;
+            width: 40px;
+            height: 40px;
+          }
+
+          input[type="number"]::-webkit-inner-spin-button,
+          input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+        }
+      }
+      .box-nut{
+        margin-top: 2em;
+        .nut-them{
+          border: 1px solid $color-primary;
+          color: $color-primary;
+          &:hover{
+            background-color: $color-primary;
+            color: white;
+          }
+        }
+        .nut-muangay{
+          border: 1px solid $color-primary;
+          background-color: $color-primary;
+          color: white;
+
+         
+          &:hover{
+            background-color: white;
+            color: $color-primary;
+          }
+        }
+      }
+      hr{
+        margin: 1em 0;
+      }
+    }
+  }
+  .chitiet{
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgb(163, 163, 163);
+    padding: 1em;
+    margin-top: 1em;
+    .tieude{
+      background-color: rgb(244, 244, 244);
+      padding: 1em;
+      border-radius: 5px;
+      margin: 1em 0;
+      color: rgb(86, 86, 86);
+    }
+  }
+}
