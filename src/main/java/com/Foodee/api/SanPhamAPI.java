@@ -25,9 +25,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "SanPhamAPI", urlPatterns = {"/api-sanpham"})
 public class SanPhamAPI extends HttpServlet {
+
     private SanPhamDAO spdao = new SanPhamDAO();
     private ObjectMapper om = new ObjectMapper();
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
@@ -35,7 +36,7 @@ public class SanPhamAPI extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         List<SanPham> listSP = spdao.getAllProduct();
         om.writerWithDefaultPrettyPrinter().writeValue(response.getOutputStream(), listSP);
-        
+
     }
 
     // thêm sản phẩm
@@ -44,19 +45,41 @@ public class SanPhamAPI extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
-        SanPham sp = HttpUtil.of(request.getReader()).toModel(SanPham.class); // convert chuỗi json nhận được về model
-        int res = new SanPhamDAO().insertProduct(sp); // lưu sản phẩm đó lại
-        TrangThai tt = new TrangThai(res);
+        SanPham sp = null;
+        int res = 0;
+        TrangThai tt = new TrangThai();
+        try {
+            sp = HttpUtil.of(request.getReader()).toModel(SanPham.class); // convert chuỗi json nhận được về model
+            res = new SanPhamDAO().insertProduct(sp); // lưu sản phẩm đó lại
+            tt = new TrangThai(res);
+        } catch (Exception e) {
+            tt.setStatus("Cần nhập không thiếu các trường của sản phẩm");
+        }
+
         om.writeValue(response.getOutputStream(), tt);
     }
 
-//    // sửa sản phẩm
-//    @Override
-//    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        System.out.println("-------------------");
-//        System.out.println("put");
-//    }
-//
+    // sửa sản phẩm
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        resp.setContentType("application/json");
+        SanPham sp = null;
+        int res = 0;
+        TrangThai tt = new TrangThai(res);
+        sp = HttpUtil.of(req.getReader()).toModel(SanPham.class); // convert chuỗi json nhận được về model
+        
+        if (sp.getId() != 0) {
+            res = new SanPhamDAO().updateProduct(sp.getId(), sp); // lưu sản phẩm đó lại
+            tt = new TrangThai(res);
+            om.writeValue(resp.getOutputStream(), tt);
+        }
+        else{
+            om.writeValue(resp.getOutputStream(), tt);
+        }
+        
+    }
+
 //    // xóa sản phẩm
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -184,6 +184,32 @@ public class SanPhamDAO {
         return a;
     }
     
+    public int updateProduct(int pid, SanPham sp){
+        int id = getTopId();
+        int a = 0;
+        String query ="update Product set name = ?,avatar = ?,description = ?,price = ?,rate = ?,categoryid = ?,intro = ?,detail = ?,discount = ?,amount = ? where id = ?";
+        try {
+            connectDB();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, sp.getName());
+            ps.setString(2, sp.getAvatar());
+            ps.setString(3, sp.getDescription());
+            ps.setString(4, ""+sp.getPrice());
+            ps.setString(5, ""+sp.getRate());
+            ps.setString(6, ""+sp.getCategoryId());
+            ps.setString(7, sp.getIntro());
+            ps.setString(8, sp.getDetail());
+            ps.setString(9, ""+sp.getDiscount());
+            ps.setString(10, ""+sp.getAmount());
+            ps.setInt(11, pid);
+            a = ps.executeUpdate();
+            stopConnectDB();
+            
+        } catch (Exception e) {
+        }
+        return a;
+    }
+    
     public int getTopId() {
         String query = "select top 1 id from " + tableName + " order by id desc";
         int id = 1;

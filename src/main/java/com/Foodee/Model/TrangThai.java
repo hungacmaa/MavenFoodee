@@ -25,10 +25,10 @@ public class TrangThai {
     }
     public TrangThai(int s) {
         if(s==1){
-            this.status = "thanh cong";
+            this.status = "Thành công";
         }
         else{
-            this.status = "that bai";
+            this.status = "Thất bại";
         }
     }
 

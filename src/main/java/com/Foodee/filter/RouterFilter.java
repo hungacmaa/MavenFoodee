@@ -123,7 +123,6 @@ public class RouterFilter implements Filter {
             // rethrow the problem after that.
             problem = t;
             t.printStackTrace();
-            System.out.println("duamaaa");
         }
         
         doAfterProcessing(request, response);
