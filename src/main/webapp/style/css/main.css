@@ -49,6 +49,39 @@ input:focus {
   .danhgia .ngoisao.hoatdong {
     color: #f8d80b; }
 
+@keyframes tuPhaiVao {
+  0% {
+    transform: translateX(200%);
+    opacity: 0; }
+  10% {
+    transform: translateX(0);
+    opacity: 1; }
+  80% {
+    transform: translateX(0);
+    opacity: 1; }
+  100% {
+    transform: translateX(0);
+    opacity: 0; } }
+.thongbao-tong {
+  position: fixed;
+  right: 0;
+  top: 0;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 1em;
+  animation-name: tuPhaiVao;
+  animation-duration: 4s;
+  display: none; }
+  .thongbao-tong .title {
+    color: white; }
+  .thongbao-tong .text {
+    color: white;
+    margin-top: 0.5em; }
+  .thongbao-tong.thanhcong {
+    background-color: #66b53e; }
+  .thongbao-tong.thatbai {
+    background-color: #b53e3e; }
+
 header {
   background-color: #ee4d2d; }
   header .header-tren {
@@ -104,7 +137,13 @@ header {
       margin-left: 4em; }
       header .header-duoi .phan3 .giohang {
         color: #fff;
-        font-size: 1.3rem; }
+        font-size: 1.3rem;
+        position: relative; }
+        header .header-duoi .phan3 .giohang .soluong {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          transform: translate(50%, 50%); }
 
 footer {
   padding: 3em 0; }

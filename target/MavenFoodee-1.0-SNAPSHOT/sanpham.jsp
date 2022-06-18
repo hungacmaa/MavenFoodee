@@ -21,7 +21,7 @@
                             </h4>
                             <% for (LoaiDA o : dsLoai) {%>
                             <div class="danhmuc-item">
-                                <a class="link <%= ((int)request.getAttribute("cidHD") == o.getId()) ? "hoatdong" : ""%>" href="./loaisanpham?cid=<%= o.getId()%>"><%= o.getName()%></a>
+                                <a class="link <%= ((int) request.getAttribute("cidHD") == o.getId()) ? "hoatdong" : ""%>" href="./loaisanpham?cid=<%= o.getId()%>"><%= o.getName()%></a>
                             </div>
                             <%}%>
 
@@ -43,17 +43,17 @@
                                     <option>Ký tự z-a</option>
                                 </select>
                             </div>
-<!--                            <div class="timtheoten">
-                                <input type="text" />
-                            </div>
-                            <div class="sapxep">
-                                <select class="form-control" name="" id="">
-                                    <option>Giá cao đến thấp</option>
-                                    <option>Giá thấp đến cao</option>
-                                    <option>Ký tự a-z</option>
-                                    <option>Ký tự z-a</option>
-                                </select>
-                            </div>-->
+                            <!--                            <div class="timtheoten">
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div class="sapxep">
+                                                            <select class="form-control" name="" id="">
+                                                                <option>Giá cao đến thấp</option>
+                                                                <option>Giá thấp đến cao</option>
+                                                                <option>Ký tự a-z</option>
+                                                                <option>Ký tự z-a</option>
+                                                            </select>
+                                                        </div>-->
                             <button class="nut-tim">Tìm kiếm</button>
                         </div>
                         <div class="sanpham-list">
@@ -68,10 +68,10 @@
                                         <p class="ten"><%= o.getName()%></p>
                                         <div class="duoiten">
                                             <div class="phan">
-                                                <p class="gia"><%= currencyVN.format(o.getPriceDiscount()) %></p>
+                                                <p class="gia"><%= currencyVN.format(o.getPriceDiscount())%></p>
                                             </div>
                                             <div class="phan">
-                                                <p class="daban">đã bán <%= o.getAmount() %></p>
+                                                <p class="daban">đã bán <%= o.getAmount()%></p>
                                             </div>
                                         </div>
                                     </div>
@@ -85,7 +85,7 @@
                 </div>
             </div>
         </main>
-
+      
         <%@include file="/common/footer.jsp" %>
     </body>
 </html>

@@ -15,12 +15,12 @@ import java.sql.*;
 import java.sql.DriverManager;
 
 public class DBContext {
-    private final String serverName = "LAPTOP-KSN7IN7J";
+    private final String serverName = "DESKTOP-8TLARVU";
     private final String dbName = "Foodee";
     private final String portNumber = "1433";
     private final String instance = "";
     private final String userID = "sa";
-    private final String password = "hung1399858";
+    private final String password = "Lucpham2001";
     
     public Connection getConnection() throws ClassNotFoundException, SQLException{
         String url = "jdbc:sqlserver://"+serverName+":"+portNumber+"\\"+instance+";databaseName="+dbName;
