@@ -73,7 +73,26 @@
                 </div>
             </div>
         </main>
+        <div class="thongbao-tong thanhcong">
+            <h4 class="title">Thêm sản phẩm thành công</h4>
+            <p class="text">bạn hãy kiểm tra giỏ hàng</p>
+        </div>
 
         <%@include file="/common/footer.jsp" %>
     </body>
+    <script>
+        <% if (true) {%>
+         guiThongbao('do', 'dsafdsaf')
+        <%}%>
+
+         function guiThongbao(title, text) {
+             document.querySelector('.thongbao-tong').style.display = 'block';
+             document.querySelector('.thongbao-tong .title').textContent = title;
+             document.querySelector('.thongbao-tong .title').textContent = text;
+             setTimeout(() => {
+                 document.querySelector('.thongbao-tong').style.display = 'none';
+             }, 4000);
+
+         }
+    </script>
 </html>
