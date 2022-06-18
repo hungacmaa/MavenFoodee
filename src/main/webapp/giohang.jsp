@@ -74,7 +74,7 @@
             </div>
         </main>
         <div class="thongbao-tong thanhcong">
-            <h4 class="title">Thêm sản phẩm thành công</h4>
+            <h4 class="title">Thêm sản phẩm thaast bai</h4>
             <p class="text">bạn hãy kiểm tra giỏ hàng</p>
         </div>
 
