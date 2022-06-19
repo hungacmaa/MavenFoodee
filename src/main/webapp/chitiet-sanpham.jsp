@@ -17,11 +17,11 @@
                     <div class="box-anh">
                         <div class="anh-to">
                             <img
-                                src="https://cdn.tgdd.vn/Files/2019/03/07/1153472/chinese-new-year_600x800.jpg"
+                                src="<%= sp.getAvatar() %>"
                                 alt=""
                                 />
                         </div>
-                        <div class="anh-duoi">
+<!--                        <div class="anh-duoi">
                             <div class="anh-list">
                                 <div class="anh-item">
                                     <img
@@ -60,7 +60,7 @@
                                         />
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
 
                     <div class="benduoi"></div>
