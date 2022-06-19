@@ -6,6 +6,7 @@
 package com.Foodee.control;
 
 import com.Foodee.Model.LoaiDA;
+import com.Foodee.Model.SanPham;
 import com.Foodee.dao.LoaiDADAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -37,7 +38,14 @@ public class CommonControler extends HttpServlet {
             throws ServletException, IOException {
         LoaiDADAO loaiDAO = new LoaiDADAO();
         List<LoaiDA> dsLoai = (loaiDAO.getAllCategory()!=null)?loaiDAO.getAllCategory():new ArrayList<LoaiDA>();
+       
+        int slsp = 0;
+//        List<SanPham> dssp = new ArrayList<>();
+        if(request.getSession().getAttribute("giohang") != null){
+            slsp = ((List<SanPham>) request.getSession().getAttribute("giohang")).size();
+        }
         request.setAttribute("dsLoai", dsLoai);
+        request.setAttribute("slsp", slsp);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -56,6 +56,15 @@ public class ChitietSanphamControler extends HttpServlet {
         // đẩy vào jsp
         request.setAttribute("sp", sp);
         
+        if (request.getParameter("added") != null) {
+            request.setAttribute("display", true);
+            if (request.getParameter("added").equals("true")) {
+                request.setAttribute("note", "Thêm vào giỏ hàng thành công");
+            }
+            else{
+                request.setAttribute("note", "Bạn phải chọn ít nhất 1 sản phẩm");
+            }
+        }
         
 
         request.getRequestDispatcher("chitiet-sanpham.jsp").forward(request, response);

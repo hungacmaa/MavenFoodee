@@ -60,6 +60,7 @@
             <div class="phan3">
                 <a href="./giohang" class="giohang">
                     <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="soluong">${slsp}</span>
                 </a>
             </div>
         </div>

@@ -28,7 +28,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "HoaDonControler", urlPatterns = {"/hoadon"})
 public class HoaDonControler extends HttpServlet {
 
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -42,7 +41,7 @@ public class HoaDonControler extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -61,20 +60,30 @@ public class HoaDonControler extends HttpServlet {
         if (request.getSession().getAttribute("giohang") != null) {
             dssp = (ArrayList<CartItem>) request.getSession().getAttribute("giohang");
         }
-        // tạo 1 đối tượng hóa đơn
-        HoaDon hd = new HoaDon(id, ten, diachi, email, sdt, dssp);
-        // thêm hóa đơn vào cơ sở dữ liệu
-        hddao.addHoaDon(hd);
-        // thêm các sản phẩm trong hóa đơn vào bảng Bill_Item
-        for (CartItem item : dssp) {
-            BillItem bi = new BillItem(bidao.getTopId(), item.getSp(), hd, item.getSl());
-            bidao.addBillItem(bi);
-            spdao.updateAmount(item.getSp().getId(), item.getSl());
+        
+        System.out.println(ten + sdt + email + diachi);
+        
+        if (ten == null || sdt == null || email == null || diachi == null) {
+            response.sendRedirect("giohang?added=false");
+        } else {
+            // tạo 1 đối tượng hóa đơn
+            HoaDon hd = new HoaDon(id, ten, diachi, email, sdt, dssp);
+            // thêm hóa đơn vào cơ sở dữ liệu
+            hddao.addHoaDon(hd);
+            // thêm các sản phẩm trong hóa đơn vào bảng Bill_Item
+            for (CartItem item : dssp) {
+                BillItem bi = new BillItem(bidao.getTopId(), item.getSp(), hd, item.getSl());
+                bidao.addBillItem(bi);
+                spdao.updateAmount(item.getSp().getId(), item.getSl());
+            }
+            // xóa sản phẩm trong giỏ hàng ở session
+            if (request.getSession().getAttribute("giohang") != null) {
+                ArrayList<CartItem> list = (ArrayList<CartItem>) request.getSession().getAttribute("giohang");
+                list.clear();
+            }
+            response.sendRedirect("giohang?added=true");
         }
-        // xóa sản phẩm trong giỏ hàng ở session
-        ArrayList<CartItem> list = (ArrayList<CartItem>) request.getSession().getAttribute("giohang");
-        list.clear();
-        response.sendRedirect("giohang");
+
     }
 
     /**

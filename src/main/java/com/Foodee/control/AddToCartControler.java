@@ -42,9 +42,10 @@ public class AddToCartControler extends HttpServlet {
         // xử lý thêm giỏ hàng bằng session
         if (soluong > 0) {
             HttpSession session = request.getSession();
+            
             if (session.getAttribute("giohang") != null) {
+                System.out.println(session.getAttribute("giohang"));
                 ArrayList<CartItem> giohang = (ArrayList<CartItem>) session.getAttribute("giohang");
-
                 int co = 0;
                 for (CartItem item : giohang) {
                     if (item.getSp().getId() == thisSP.getId()) {
@@ -62,9 +63,12 @@ public class AddToCartControler extends HttpServlet {
                 giohang.add(new CartItem(thisSP, soluong));
                 session.setAttribute("giohang", giohang);
             }
+            response.sendRedirect("./chitietsanpham?pid="+request.getParameter("pid")+"&added=true");
         }
-
-        response.sendRedirect("./chitietsanpham?pid=1");
+        else{
+            response.sendRedirect("./chitietsanpham?pid="+request.getParameter("pid")+"&added=false");
+        }
+        
     }
 
     /**
