@@ -10,7 +10,6 @@
     <%@include file="/common/headTag.html" %>
     <body>
         <%@include file="/common/header.jsp" %>
-
         <main class="trang-gio-hang noidung-trang">
             <div class="baoquanh">
                 <div class="tieude-trang">
@@ -74,21 +73,21 @@
             </div>
         </main>
         <div class="thongbao-tong thanhcong">
-            <h4 class="title">Thêm sản phẩm thaast bai</h4>
-            <p class="text">bạn hãy kiểm tra giỏ hàng</p>
+            <h4 class="title"></h4>
+            <p class="text"></p>
         </div>
 
         <%@include file="/common/footer.jsp" %>
     </body>
     <script>
-        <% if (true) {%>
-         guiThongbao('do', 'dsafdsaf')
+        <% if (request.getAttribute("display")!=null && (Boolean)request.getAttribute("display")) {%>
+         guiThongbao('${note}', '')
         <%}%>
 
          function guiThongbao(title, text) {
              document.querySelector('.thongbao-tong').style.display = 'block';
              document.querySelector('.thongbao-tong .title').textContent = title;
-             document.querySelector('.thongbao-tong .title').textContent = text;
+             document.querySelector('.thongbao-tong .text').textContent = text;
              setTimeout(() => {
                  document.querySelector('.thongbao-tong').style.display = 'none';
              }, 4000);

@@ -41,6 +41,18 @@ public class GiohangControler extends HttpServlet {
             tongtien += item.getTongtien();
         }
         request.setAttribute("tongtien", tongtien);
+        
+        // xử lý khi đặt hàng
+        if (request.getParameter("added") != null) {
+            request.setAttribute("display", true);
+            if (request.getParameter("added").equals("true")) {
+                request.setAttribute("note", "Đặt hàng thành công");
+            }
+            else{
+                request.setAttribute("note", "Đặt hàng không thành công");
+            }
+        }
+        
         request.getRequestDispatcher("giohang.jsp").forward(request, response);
     }
 

@@ -21,7 +21,7 @@ public class DBContext {
     private final String instance = "";
     private final String userID = "sa";
     private final String password = "1";
-    
+
     public Connection getConnection() throws ClassNotFoundException, SQLException{
         String url = "jdbc:sqlserver://"+serverName+":"+portNumber+"\\"+instance+";databaseName="+dbName;
         if(instance==null || instance.trim().isEmpty()){

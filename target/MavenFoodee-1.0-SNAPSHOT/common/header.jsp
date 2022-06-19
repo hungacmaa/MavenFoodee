@@ -3,7 +3,6 @@
     Created on : Jun 2, 2022, 3:18:20 PM
     Author     : Admin
 --%>
-
 <%@page import="com.Foodee.Model.CartItem"%>
 <%@page import="java.text.NumberFormat"%>
 <%@page import="java.util.Locale"%>
@@ -60,6 +59,7 @@
             <div class="phan3">
                 <a href="./giohang" class="giohang">
                     <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="soluong">${slsp}</span>
                 </a>
             </div>
         </div>

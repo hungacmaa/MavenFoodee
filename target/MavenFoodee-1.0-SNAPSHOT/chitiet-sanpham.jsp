@@ -62,8 +62,11 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="benduoi"></div>
+
                 </div>
+
                 <div class="phan-phai">
                     <h4 class="ten-sanpham"><%= sp.getName()%></h4>
                     <div class="box-danhgia">
@@ -97,7 +100,9 @@
                     <hr />
                     <p><%= sp.getIntro()%></p>
                 </div>
+
             </div>
+
             <div class="chitiet baoquanh">
                 <h4 class="tieude">CHI TIẾT SẢN PHẨM</h4>
                 <%= sp.getDetail()%>
@@ -106,43 +111,45 @@
                     <%= sp.getDescription()%>
                 </p>
             </div>
+
+            <div class="thongbao-tong thanhcong">
+                <h4 class="title"></h4>
+                <p class="text"></p>
+            </div>
         </main>
-        <div class="thongbao-tong thanhcong">
-            <h4 class="title">Thêm sản phẩm thành công</h4>
-            <p class="text">bạn hãy kiểm tra giỏ hàng</p>
-        </div>
 
         <%@include file="/common/footer.jsp" %>
-    </body>
-    <script>
-        const inputSL = document.getElementById("soluong")
 
-        function giam(e) {
-            const sl = Number(inputSL.value) - 1
-            if (sl >= 0) {
+        <script>
+            const inputSL = document.getElementById("soluong")
+
+            function giam(e) {
+                const sl = Number(inputSL.value) - 1
+                if (sl >= 0) {
+                    inputSL.value = sl
+                }
+            }
+
+            function tang(e) {
+                const sl = Number(inputSL.value) + 1
                 inputSL.value = sl
             }
-        }
 
-        function tang(e) {
-            const sl = Number(inputSL.value) + 1
-            inputSL.value = sl
-        }
-    </script>
-    <script>
-        <% if (true) {%>
-        guiThongbao('do', 'dsafdsaf')
-        <%}%>
+            <% if (request.getAttribute("display")!=null && (Boolean) request.getAttribute("display")) {%>
+            guiThongbao('${note}', 'Kiểm tra giỏ hàng')
+            <%}%>
 
-        function guiThongbao(title, text) {
-            document.querySelector('.thongbao-tong').style.display = 'block';
-            document.querySelector('.thongbao-tong .title').textContent = title;
-            document.querySelector('.thongbao-tong .title').textContent = text;
-            setTimeout(() => {
-                document.querySelector('.thongbao-tong').style.display = 'none';
-            }, 4000);
+            function guiThongbao(title, text) {
+                document.querySelector('.thongbao-tong').style.display = 'block';
+                document.querySelector('.thongbao-tong .title').textContent = title;
+                document.querySelector('.thongbao-tong .text').textContent = text;
+                setTimeout(() => {
+                    document.querySelector('.thongbao-tong').style.display = 'none';
+                }, 4000);
 
-        }
-    </script>
+            }
+        </script>
+    </body>
+
 
 </html>
