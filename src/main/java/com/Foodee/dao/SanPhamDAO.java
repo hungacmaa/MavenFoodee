@@ -122,7 +122,7 @@ public class SanPhamDAO {
 
     public List<SanPham> getProductByNameKey(String nameKey) {
         List<SanPham> list = new ArrayList<>();
-        String query = "select * from " + tableName + " where name like '%" + nameKey + "%'";
+        String query = "select * from " + tableName + " where name like N'%" + nameKey + "%'";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
@@ -228,5 +228,6 @@ public class SanPhamDAO {
     }
     
     public static void main(String[] args) {
+        System.out.println(new SanPhamDAO().getProductByNameKey("đào"));
     }
 }
