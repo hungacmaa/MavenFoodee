@@ -3,7 +3,6 @@
     Created on : Jun 2, 2022, 3:18:20 PM
     Author     : Admin
 --%>
-
 <%@page import="com.Foodee.Model.CartItem"%>
 <%@page import="java.text.NumberFormat"%>
 <%@page import="java.util.Locale"%>

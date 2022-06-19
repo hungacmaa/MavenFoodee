@@ -61,8 +61,6 @@ public class HoaDonControler extends HttpServlet {
             dssp = (ArrayList<CartItem>) request.getSession().getAttribute("giohang");
         }
         
-        System.out.println(ten + sdt + email + diachi);
-        
         if (ten == null || sdt == null || email == null || diachi == null) {
             response.sendRedirect("giohang?added=false");
         } else {
